@@ -19,10 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
         ScrollableHeaderWebView webview = findViewById(R.id.main_webview);
 
-        View header = getLayoutInflater().inflate(R.layout.header, webview, false);
+        View header = findViewById(R.id.headerRoot);
         setHeaderUi(header);
-        webview.setHeaderView(header,
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         webview.getSettings().setBuiltInZoomControls(true);
 

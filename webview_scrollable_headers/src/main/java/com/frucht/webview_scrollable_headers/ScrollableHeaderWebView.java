@@ -1,11 +1,13 @@
 package com.frucht.webview_scrollable_headers;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AbsoluteLayout;
@@ -22,15 +24,34 @@ public class ScrollableHeaderWebView extends WebView {
 
     public ScrollableHeaderWebView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init(context, attrs, 0, 0);
     }
 
     public ScrollableHeaderWebView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context, attrs, defStyleAttr, 0);
     }
 
     @RequiresApi(21)
     public ScrollableHeaderWebView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        init(context, attrs, defStyleAttr, defStyleRes);
+    }
+
+    private void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ScrollableHeaderWebView,
+                defStyleAttr, defStyleRes);
+
+        int headerViewResId = a.getResourceId(R.styleable.ScrollableHeaderWebView_header_view, 0);
+
+        if (headerViewResId != 0) {
+            // Inflate header and set it on the webview
+            View header = inflate(context, headerViewResId, null);
+            setHeaderView(header,
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        }
+
+        a.recycle();
     }
 
     @Override
