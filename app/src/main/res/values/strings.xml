@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Test WebviewHeaders</string>
+    <string name="title_text">Welcome to Wikipedia!\nThe place to learn about everything</string>
+    <string name="subtitle_text">The more you read, the smarter you get!</string>
+    <string name="show_more">Show More</string>
+    <string name="show_less">Show Less</string>
+</resources>
