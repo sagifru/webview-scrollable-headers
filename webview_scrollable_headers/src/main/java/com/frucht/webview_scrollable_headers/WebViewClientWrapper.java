@@ -30,6 +30,11 @@ public class WebViewClientWrapper extends WebViewClient {
 
     @Override
     public void onPageFinished(WebView view, String url) {
+        // Make sure to update height when we can
+        if (view instanceof ScrollableHeaderWebView) {
+            ((ScrollableHeaderWebView)view).resetHeaderPadding();
+        }
+
         mInnerClient.onPageFinished(view, url);
     }
 

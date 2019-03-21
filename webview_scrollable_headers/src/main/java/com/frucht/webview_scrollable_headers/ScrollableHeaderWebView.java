@@ -74,7 +74,7 @@ public class ScrollableHeaderWebView extends WebView {
         }
     }
 
-    private void resetHeaderPadding() {
+    void resetHeaderPadding() {
         executeJS(String.format(JavascriptConsts.SET_TOP_PADDING, mHeaderHeight));
     }
 

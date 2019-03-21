@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         webview.setHeaderView(header,
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
+        webview.getSettings().setBuiltInZoomControls(true);
+
         webview.setWebViewClient(new WebViewClient());
         webview.loadUrl("https://en.wikipedia.org/wiki/HTML");
     }
