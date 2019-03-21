@@ -59,6 +59,29 @@ public class ScrollableHeaderWebView extends WebView {
     }
 
     @Override
+    protected void onScrollChanged(int l, int t, int oldl, int oldt) {
+        super.onScrollChanged(l, t, oldl, oldt);
+
+        if (mHeaderView != null) {
+            AbsoluteLayout.LayoutParams lp = (LayoutParams) mHeaderView.getLayoutParams();
+
+            if (lp != null) {
+                // Update the header's position according to the scroll change
+                int xChange = l - oldl;
+                int newXPos = lp.x + xChange;
+
+                if (newXPos < 0) {
+                    // Shouldn't make the header start from below 0
+                    newXPos = 0;
+                }
+
+                lp.x = newXPos;
+                mHeaderView.setLayoutParams(lp);
+            }
+        }
+    }
+
+    @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
