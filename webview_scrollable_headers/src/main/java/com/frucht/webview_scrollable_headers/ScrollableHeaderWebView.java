@@ -11,9 +11,6 @@ import android.webkit.WebViewClient;
 import android.widget.AbsoluteLayout;
 
 public class ScrollableHeaderWebView extends WebView {
-    private final static String SET_TOP_PADDING =
-            "(function(){ document.body.style.paddingTop = '%spx'})();";
-
     private View mHeaderView;
     private float mHeaderHeight = 0;
     private int mHeaderHeightInPx = 0;
@@ -77,8 +74,12 @@ public class ScrollableHeaderWebView extends WebView {
         }
     }
 
-    void resetHeaderPadding() {
-        executeJS(String.format(SET_TOP_PADDING, mHeaderHeight));
+    private void resetHeaderPadding() {
+        executeJS(String.format(JavascriptConsts.SET_TOP_PADDING, mHeaderHeight));
+    }
+
+    void injectStartupJS() {
+        executeJS(String.format(JavascriptConsts.LISTEN_DOM_LOADED, mHeaderHeight));
     }
 
     private void executeJS(String javascript) {

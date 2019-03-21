@@ -30,16 +30,16 @@ public class WebViewClientWrapper extends WebViewClient {
 
     @Override
     public void onPageFinished(WebView view, String url) {
-        // Make sure to update
-        if (view instanceof ScrollableHeaderWebView) {
-            ((ScrollableHeaderWebView)view).resetHeaderPadding();
-        }
-
         mInnerClient.onPageFinished(view, url);
     }
 
     @Override
     public void onPageStarted(WebView view, String url, Bitmap favicon) {
+        // Make sure to update height when we can
+        if (view instanceof ScrollableHeaderWebView) {
+            ((ScrollableHeaderWebView)view).injectStartupJS();
+        }
+
         mInnerClient.onPageStarted(view, url, favicon);
     }
 
