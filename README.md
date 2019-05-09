@@ -32,6 +32,7 @@ This should be taken into consideration when using the library - since it might 
 Disabling javascript though will break the library.
 
 If you want to prevent javascript running in your content - load your relevant content (wether via url or actual html content) using iframe, while using "sandbox" attribute.
+
 Reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#Attributes
 
 # Example
