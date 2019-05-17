@@ -3,7 +3,6 @@ package com.frucht.webview_scrollable_headers;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -32,7 +31,6 @@ public class ScrollableHeaderWebView extends WebView {
         init(context, attrs, defStyleAttr, 0);
     }
 
-    @RequiresApi(21)
     public ScrollableHeaderWebView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context, attrs, defStyleAttr, defStyleRes);

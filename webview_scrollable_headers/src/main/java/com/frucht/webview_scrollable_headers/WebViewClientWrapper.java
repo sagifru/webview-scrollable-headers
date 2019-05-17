@@ -19,7 +19,7 @@ import android.webkit.WebViewClient;
 /**
  * Wraps web view client that it receives, and passes most apis to it.
  * This class meant to help our webview capture specific events he wants, while
- * still allowing the using programmer to set & listen to webview's event on his own
+ * still allowing the using programmer to set and listen to webview's event on his own
  */
 public class WebViewClientWrapper extends WebViewClient {
     private WebViewClient mInnerClient;
