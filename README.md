@@ -7,6 +7,17 @@ where the header will scroll with the webview's content and remain constant acro
 The library tries to imitate the same solution Google done with Gmail's Email webview - which includes scrollable header
 
 # Usage
+Add the library to your project by importing it from jcenter:
+```gradle
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'com.frucht:webview_scrollable_headers:1.0.0'
+}
+```
+
 Use ScrollableHeaderWebView as your webview - in the relevant layout file.
 Set the header layout you want to use with the webview.
 
